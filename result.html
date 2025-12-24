@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Booth Interface</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <div class="app-wrapper">
+
+        <!-- LEFT PANEL -->
+        <div class="option-panel">
+
+
+            <!-- ORIENTATION DROPDOWN MODERN -->
+            <div class="orientation-dropdown">
+
+                <!-- CLICK AREA -->
+                <div class="dropdown-selected" id="orientationSelect">
+                    Select Orientation 
+                    <span class="arrow">▾</span>
+                </div>
+                
+            <h2 class="panel-title">FRAME</h2>
+
+                <!-- MENU -->
+                <div class="dropdown-menu" id="orientationMenu">
+                    <div class="dropdown-item" data-value="horizontal">Horizontal</div>
+                    <div class="dropdown-item" data-value="vertical">Vertical</div>
+                </div>
+            </div>
+
+            <!-- FRAME DESIGNS BELOW -->
+<div class="frame-options">
+        <img class="frame-thumbnail" src="pictures/frame.png" data-frame="frame.png">
+    <img class="frame-thumbnail" src="pictures/frame1.png" data-frame="frame1.png">
+    <img class="frame-thumbnail" src="pictures/frame2.png" data-frame="frame2.png">
+    <img class="frame-thumbnail" src="pictures/frame3.png" data-frame="frame3.png">
+    <img class="frame-thumbnail" src="pictures/frame4.png" data-frame="frame4.png">
+    <img class="frame-thumbnail" src="pictures/frame5.png" data-frame="frame5.png">
+    <img class="frame-thumbnail" src="pictures/frame6.png" data-frame="frame6.png">
+    <img class="frame-thumbnail" src="pictures/frame7.png" data-frame="frame7.png">
+    <img class="frame-thumbnail" src="pictures/frame8.png" data-frame="frame8.png">
+    <img class="frame-thumbnail" src="pictures/frame9.png" data-frame="frame9.png">
+    <img class="frame-thumbnail" src="pictures/frame10.png" data-frame="frame10.png">
+</div>
+
+
+
+            <!-- Vertical separator -->
+            <div class="panel-separator"></div>
+
+        </div>
+
+        <!-- MAIN PREVIEW AREA -->
+        <div class="content-area">
+            <!-- Camera preview or output goes here -->
+        </div>
+
+        <!-- BUTTONS -->
+        <div class="action-buttons">
+            <button class="action-btn">send</button>
+            <button class="action-btn">print</button>
+        </div>
+
+    </div>
+
+    <!-- LINK JS -->
+    <script src="result.js"></script>
+</body>
+</html>

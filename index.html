@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PHOTOBOOTH</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="form-box">
+    <h1 class="title">Set Up Your Session</h1>
+    <p class="subtitle">Choose your preferences before we start capturing memories.</p>
+
+    <div class="form-group">
+      <label>Size</label>
+      <select id="photoSize">
+        <option>Landscape</option>
+        <option>Portrait</option>
+        <option>Square</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Number of Photos</label>
+      <select id="photoCount">
+        <option value="1">1 Photo Layout</option>
+        <option value="2">2 Photo Layout</option>
+        <option value="3">3 Photo Layout</option>
+        <option value="4">4 Photo Layout</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Choose Background for Photos</label>
+      <div class="background-selector">
+
+        <!-- Upload -->
+        <div class="color-circle upload" id="uploadCircle" title="Upload background">
+          <span>+</span>
+        </div>
+
+        <!-- Predefined backgrounds -->
+        <div class="color-circle" data-bg="pictures/bgblack.jpg" style="background-image: url('pictures/bgblack.jpg');"></div>
+        <div class="color-circle" data-bg="pictures/bgcream.jpg" style="background-image: url('pictures/bgcream.jpg');"></div>
+        <div class="color-circle" data-bg="pictures/bgblue.jpg" style="background-image: url('pictures/bgblue.jpg');"></div>
+        <div class="color-circle" data-bg="pictures/bggreen.jpg" style="background-image: url('pictures/bggreen.jpg');"></div>
+        <div class="color-circle" data-bg="pictures/bgpurple.jpg" style="background-image: url('pictures/bgpurple.jpg');"></div>
+        <div class="color-circle" data-bg="pictures/bgmaroon.jpg" style="background-image: url('pictures/bgmaroon.jpg');"></div>
+        <div class="color-circle" data-bg="pictures/bgbrown.jpg" style="background-image: url('pictures/bgbrown.jpg');"></div>
+        <div class="color-circle" data-bg="pictures/bggray.jpg" style="background-image: url('pictures/bggray.jpg');"></div>
+
+        <input type="file" id="uploadInput" accept="image/*" hidden />
+      </div>
+    </div>
+
+    <button id="startSession">Start</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

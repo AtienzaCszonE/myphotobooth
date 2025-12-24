@@ -1,0 +1,505 @@
+/* ====================== INDEX PAGE =========================== */
+
+body {
+  /* This ensures the entire viewport is covered with no scrolling */
+  margin: 0; 
+  height: 100vh; 
+  overflow: hidden;
+
+  background: url('pictures/photoboothbg.jpg') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  animation: fadeInBody 1.5s ease-in-out;
+}
+
+/* Smooth fade-in entrance */
+@keyframes fadeInBody {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.form-box {
+  background: rgba(0, 0, 0, 0.484);
+  color: #fff;
+  padding: 2rem 3rem;
+  border-radius: 25px;
+  width: 650px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.411);
+  text-align: center;
+  backdrop-filter: blur(5px);
+  animation: floatBox 5s ease-in-out infinite;
+  
+}
+
+/* Floating subtle motion */
+@keyframes floatBox {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  font-family: 'Georgia', serif;
+  animation: fadeDown 1s ease-in-out;
+}
+
+/* Title slide-down */
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 1.5rem;
+  animation: fadeUp 1s ease-in-out;
+}
+
+/* Subtle fade up for subtitle */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.form-group {
+  font-family: 'Georgia', serif;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+select {
+  margin-top: 10px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  background: #222;
+  color: white;
+  outline: none;
+  font-size: 0.95rem;
+  transition: box-shadow 0.3s ease, transform 0.2s;
+}
+
+select:hover {
+  box-shadow: 0 0 10px #00aaff;
+  transform: scale(1.02);
+}
+
+/* Background selector row */
+.background-selector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  animation: fadeUp 1.2s ease-in-out;
+}
+
+/* Circles animation */
+.color-circle {
+  width: 50px;
+  height: 50px;
+  margin-top: 10px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform 0.25s ease, border 0.25s ease, box-shadow 0.3s ease;
+  flex-shrink: 0;
+}
+
+/* Hover pulse */
+.color-circle:hover {
+  transform: scale(1.12);
+  border-color: #00aaff;
+  box-shadow: 0 0 12px #00aaff66;
+}
+
+/* Selected glow animation */
+.color-circle.selected {
+  border-color: #00ffff;
+  box-shadow: 0 0 15px #00ffffaa;
+  animation: glowPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 12px #00ffffaa; }
+  50% { box-shadow: 0 0 22px #00ffff; }
+}
+
+/* Upload circle */
+.color-circle.upload {
+  background: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: white;
+  transition: transform 0.25s ease, background 0.3s ease;
+}
+
+.color-circle.upload:hover {
+  background: #555;
+  transform: scale(1.1);
+}
+
+/* Start button animation */
+#startSession {
+  width: 100%;
+  background: #007bff;
+  border: none;
+  color: white;
+  padding: 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+  animation: fadeUp 1.2s ease-in-out;
+}
+
+#startSession:hover {
+  background: #00aaff;
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px #00aaff80;
+}
+
+/* Scrollbar styling */
+.background-selector::-webkit-scrollbar {
+  height: 8px;
+}
+.background-selector::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 10px;
+}
+
+
+
+
+
+
+
+
+
+/* ====================== PHOTOBOOTH PAGE =========================== */
+/* Container to center camera and shots */
+.photobooth-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 32px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Camera Frame */
+.camera-frame {
+  position: relative;
+  width: 720px;
+  max-width: 100%;
+  height: 500px;
+  background: rgba(0, 0, 0, 0.464);
+  border: 2px solid rgba(59, 131, 246, 0.792);
+  border-radius: 1.5rem;
+  box-shadow: 0 0 40px rgba(59, 131, 246, 0.418);
+  overflow: hidden;
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Flash effect */
+.flash {
+  position: absolute;
+  inset: 0;
+  background: white;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+/* Capture Button */
+.capture-btn {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  /* Add this line to center the button horizontally */
+  transform: translateX(-50%); 
+  width: 50px;
+  height: 50px;
+  background: #3b82f6;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(59,130,246,0.5);
+}
+
+.capture-btn:hover {
+  transform: scale(1.1) translateX(-50%); /* Update hover to maintain centering */
+  background: #2563eb;
+}
+
+.capture-btn svg {
+  width: 40px;
+  height: 40px;
+  stroke: white;
+}
+
+/* Shots Container */
+.shots-container {
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Shots Title */
+.shots-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #3b82f6;
+  text-align: center;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Shots Grid */
+.shots-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+/* Individual Shots */
+#shots img {
+  width: 100%;
+  max-width: 140px;
+  height: auto;
+  border-radius: 16px;
+  border: 2px solid #3b82f6;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  object-fit: cover;
+}
+
+#shots img:hover {
+  transform: scale(1.05);
+  border-color: #2563eb;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.25);
+}
+
+/* Finish Button */
+.finish-btn {
+  background: #3b82f6;
+  color: white;
+  padding: 12px;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.3s ease;
+}
+
+.finish-btn:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(37,99,235,0.5);
+}
+
+
+
+
+
+
+/* ====================== RESULT PAGE =========================== */
+
+
+/* Main app box */
+.app-wrapper {
+    width: 1000px;
+    height: 600px;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    border-radius: 20px;
+}
+
+/* Left side panel */
+.option-panel {
+    width: 200px;
+    padding-right: 20px;
+    position: relative;
+    
+}
+
+/* Titles */
+.panel-title {
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-family: sans-serif;
+    font-size: 1rem;
+}
+
+/* Dropdown modern */
+.orientation-dropdown {
+    width: 100%;
+    position: relative;
+    margin-bottom: 15px;
+    font-family: sans-serif;
+}
+
+.dropdown-selected {
+    background: #ddd;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.2s;
+}
+
+.dropdown-selected:hover {
+    background: #ccc;
+}
+
+.arrow {
+    display: inline-block;
+    transition: transform 0.3s;
+}
+
+/* Dropdown menu with smooth animation */
+.dropdown-menu {
+    max-height: 0;
+    overflow: hidden;
+    flex-direction: column;
+    background: #eee;
+    border-radius: 8px;
+    margin-top: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: max-height 0.3s ease;
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+}
+
+.dropdown-menu.open {
+    max-height: 200px; /* Enough for 2 items */
+}
+
+.dropdown-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.dropdown-item:hover {
+    background: #ccc;
+}
+
+.frame-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+    max-height: 460px;  /* Limit height for scroll */
+    overflow-y: auto;   /* Enable vertical scroll */
+    padding-right: 5px; /* Space for scrollbar */
+    
+}
+
+/* Optional: custom scrollbar */
+.frame-options::-webkit-scrollbar {
+    width: 6px;
+}
+
+.frame-options::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.1);
+    border-radius: 3px;
+}
+
+.frame-options::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.4);
+    border-radius: 3px;
+}
+
+.frame-thumbnail {
+    width: 100%;
+    height: 120px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    flex-shrink: 0;
+}
+
+.content-area {
+    flex-grow: 1;
+    background-color: #fff;
+    border-radius: 15px;
+    margin-left: 20px;
+    height: 500px;
+    position: relative; /* Needed for overlay */
+    overflow: hidden;
+}
+
+#frameOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Para hindi maka-interfere sa camera */
+}
+
+/* Vertical separator */
+.panel-separator {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background-color: #fff;
+}
+
+
+
+/* Buttons */
+.action-buttons {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.action-btn {
+    padding: 10px 20px;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    text-transform: uppercase;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Photobooth</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.9.0/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/body-pix"></script>
+</head>
+<body>
+
+  <!-- Photobooth Container -->
+  <div class="photobooth-container">
+
+    <!-- Camera Frame -->
+    <div class="camera-frame">
+      <div class="flash" id="flash"></div>
+      <video id="camera" autoplay playsinline></video>
+      <canvas id="snapshot" class="hidden"></canvas>
+
+      <!-- Capture Button -->
+      <div id="captureBtn" class="capture-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10" stroke="white" stroke-width="1"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Shots & Finish -->
+    <div class="shots-container">
+      <h2 class="shots-title">Preview</h2>
+      <div id="shots" class="shots-grid"></div>
+      <button id="finishBtn" class="finish-btn">Finish</button>
+    </div>
+
+  </div>
+
+  <script src="photobooth.js"></script>
+</body>
+</html>
